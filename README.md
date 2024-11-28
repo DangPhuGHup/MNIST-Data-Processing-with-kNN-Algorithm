@@ -1,58 +1,52 @@
-# Merge Sort Implementation in MIPS Assembly
+# MNIST Data Processing and kNN Algorithm Implementation
 
-## **Introduction**
-This project showcases a **MIPS Assembly** implementation of the **Merge Sort Algorithm**, a classical divide-and-conquer sorting technique. The program takes an array of integers as input, validates the size of the array, and sorts it using the merge sort algorithm. The result is then printed to the console. This implementation demonstrates proficiency in low-level programming, recursion, and stack management.
+## Project Overview
+This project implements the **k-Nearest Neighbors (kNN)** algorithm to classify handwritten digit images from the **MNIST dataset**, using **C++** and custom-built list data structures.
 
----
-
-## **Features**
-- **Input Validation**: Ensures the array size is between 1 and 20.
-- **Recursive Merge Sort**: Implements a highly efficient sorting algorithm using recursion.
-- **Dynamic Stack Management**: Leverages the stack to handle array segments during sorting.
-- **User-Friendly Output**: Prints the sorted array in an easily readable format.
+The **kNN algorithm** is a fundamental and effective classification method that predicts labels for new data points based on the labels of **k nearest neighbors**. This project includes:
+- Processing and analyzing the MNIST dataset.
+- Using custom list structures to manage and manipulate data efficiently.
+- Building a kNN model with training, prediction, and accuracy evaluation capabilities.
 
 ---
 
-## **Program Structure**
-### 1. **Data Section**
-Defines constants, messages, and storage for the array:
-- `maxsize`: Maximum allowed size of the array.
-- `arr`: Memory space for storing the input array.
-- Strings like `inputsize_msg`, `invalidsize_msg`, and `input_msg` are used to guide the user.
+## Key Features
+1. **MNIST Data Processing**:
+   - Load data from CSV files.
+   - View the first/last few rows and extract subsets of data.
+2. **kNN Algorithm Implementation**:
+   - Train the model on training data.
+   - Predict labels for test data.
+   - Evaluate the accuracy of predictions.
+3. **Custom List Data Structure**:
+   - Built from scratch with basic operations like insert, delete, traverse, and reverse.
+4. **Command-Line Interface**:
+   - Users can interact with and test functions directly from the terminal.
 
-### 2. **Text Section**
-Contains the main logic:
-- **Main Function**: Handles input, validation, and initiates the merge sort process.
-- **Merge Sort Function**: Divides the array into halves recursively and merges them in sorted order.
-- **Auxiliary Logic**: Ensures smooth handling of edge cases, stack adjustments, and clean printing of results.
+---
+
+## System Requirements
+- **Operating System**: Linux/UNIX or Windows (preferably with WSL or MinGW).
+- **Compiler**: g++ with C++11 support.
+- **Dataset**: The provided `mnist.csv` file.
 
 ---
 
 ## **How to Use**
-### **Input Requirements**
-- The program prompts the user to:
-  1. Enter the size of the array (between 1 and 20).
-  2. Input integers to populate the array.
+### **Data Processing**
+  1. Load MNIST Data from File: Use the loadFromCSV function to load data from mnist.csv
+  2. Preview Data: Use printHead or printTail to display the first or last few rows of the dataset.
 
-### **Execution**
-1. Assemble and run the program using any MIPS simulator like **SPIM** or **MARS**.
-2. Follow the prompts on the console.
-3. The sorted array will be displayed as output.
+
+### **Training and Prediction**
+1. Training: Call the fit function from the kNN class to load training data (X_train and y_train).
+2. Prediction: Use predict with test data (X_test) to predict labels.
+3. Evaluation: The score function calculates the model's accuracy based on true labels and predictions.
 
 ---
 
-## **Core Functions**
-### **Main**
-- Handles user interaction.
-- Validates inputs for size and elements.
-- Calls the `mergesort` function to sort the array.
-
-### **Merge Sort**
-- **Divide**: Splits the array into two halves.
-- **Conquer**: Sorts each half recursively.
-- **Merge**: Combines sorted halves back into the original array.
-
-### **Print**
-- Traverses the sorted array and prints each element in a formatted manner.
-
+## **Use the following command to compile**
+1. g++ -o main main.cpp kNN.cpp -I . -std=c++11
+2. ./main
+ 
 ---
